@@ -22,22 +22,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="Artifact001" />
-        <module name="test" />
-      </profile>
-      <profile default="false" name="Annotation profile for Artifact001 (2)" enabled="true">
-        <sourceOutputDir name="chapter_001/target/generated-sources/annotations" />
-        <sourceTestOutputDir name="chapter_001/target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
+        <module name="Artifact001 (1)" />
         <module name="Artifact001 (2)" />
+        <module name="test" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Artifact001" target="1.5" />
       <module name="Artifact001 (1)" target="1.5" />
-      <module name="Artifact001 (2)" target="1.5" />
-      <module name="test" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
