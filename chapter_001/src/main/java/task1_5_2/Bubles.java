@@ -5,11 +5,7 @@ import java.util.Arrays;
  */
 public class Bubles {
 
-    public static void main(String args[]){
-        Bubles buble = new Bubles();
-        int[] massive = {8, 7, 36, 64, 59};
-        System.out.println(Arrays.toString(buble.sort(massive)));
-    }
+
     public int[] sort(int[] massive) {
         for(int i=0;i<massive.length-1;i++){
             for(int j=i+1;j<massive.length;j++){

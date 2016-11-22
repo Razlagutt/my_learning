@@ -12,20 +12,20 @@ public class Paint {
 
     }
     public int piramid(int h){
-        StringBuffer sBuffer = new StringBuffer();
+        StringBuilder sbuilder = new StringBuilder();
 
             for(int i=0;i<h;i++){
-                sBuffer.append("\n");
+               // sbuilder.append("\n");
             int a=(h-1)-i;
             for(int b=a;b>0;b--){
-                sBuffer.append(" ");
+                sbuilder.append(" ");
             }
             int c=(i*2)+1;
             for(int d=c;d>0;d--){
-                sBuffer.append("^");
+                sbuilder.append("^");
             }
             for(int b=a;b>0;b--){
-                sBuffer.append(" ");
+                sbuilder.append(" ");
             }
 
 
@@ -33,9 +33,9 @@ public class Paint {
                 //System.out.println( sBuffer.toString());
                // System.out.println("\n");
             }
-        System.out.println( sBuffer.toString());
-
-    return 0;
+        final String str = sbuilder.toString();
+        System.out.println(str);
+        return 0;
     }
 
 
