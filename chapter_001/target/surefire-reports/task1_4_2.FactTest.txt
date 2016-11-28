@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: Square.SquareTest
+Test set: task1_4_2.FactTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.052 sec
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec

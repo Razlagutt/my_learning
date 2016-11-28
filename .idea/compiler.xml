@@ -22,7 +22,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="Artifact001 (1)" />
+        <module name="Artifact001" />
         <module name="Artifact001 (2)" />
         <module name="test" />
       </profile>

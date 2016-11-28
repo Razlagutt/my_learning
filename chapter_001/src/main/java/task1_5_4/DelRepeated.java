@@ -7,7 +7,13 @@ import java.util.Arrays;
  */
 public class DelRepeated {
 
+    public static void main(String[] args){
 
+       DelRepeated dRepeated = new DelRepeated();
+        int[] numbers = {1, 1, 3, 3, 3, 6, 8, 8, 8};
+        numbers = dRepeated.delRepeated(numbers);
+        System.out.println(Arrays.toString(numbers));
+    }
 
     public int [] delRepeated (int []  massive ){
         int [] temp = new int[massive.length];
