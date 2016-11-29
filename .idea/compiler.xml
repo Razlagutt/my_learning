@@ -22,14 +22,15 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="Artifact001" />
-        <module name="Artifact001 (2)" />
-        <module name="test" />
+        <module name="chapter_001" />
+        <module name="chapter_002" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Artifact001" target="1.5" />
-      <module name="Artifact001 (1)" target="1.5" />
+      <module name="chapter_001" target="1.5" />
+      <module name="chapter_001 (1)" target="1.5" />
+      <module name="chapter_002" target="1.5" />
+      <module name="job4j" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

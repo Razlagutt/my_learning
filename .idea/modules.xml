@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/chapter_001/Artifact001.iml" filepath="$PROJECT_DIR$/chapter_001/Artifact001.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Artifact001 (1).iml" filepath="$PROJECT_DIR$/Artifact001 (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter_001/chapter_001.iml" filepath="$PROJECT_DIR$/chapter_001/chapter_001.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter_002/chapter_002.iml" filepath="$PROJECT_DIR$/chapter_002/chapter_002.iml" />
+      <module fileurl="file://$PROJECT_DIR$/job4j.iml" filepath="$PROJECT_DIR$/job4j.iml" />
     </modules>
   </component>
 </project>
