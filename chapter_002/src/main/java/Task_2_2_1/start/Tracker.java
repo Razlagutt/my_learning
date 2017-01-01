@@ -11,41 +11,7 @@ public class Tracker {
     private int position = 0;
     private static final Random RN = new Random();
 
-    public  static void main (String [] args){
-        Tracker tracker = new Tracker();
 
-
-
-
-        tracker.add(new Task("firstTask", "description1", "123"));
-        tracker.add(new Task("secondTask", "description2", "123 "));
-        tracker.add(new Task("ThirdItem", "description3", "1212"));
-
-
-        for (Item item : tracker.getAll()){
-            System.out.println(item.getName()+ " " + item.getDescription()+ " "+ item.getId()+" "+ item.getComment());
-
-        }
-        System.out.println("//////////////////////////");
-        for (Item item : tracker.filterByName("Item")){
-            System.out.println(item.getName()+ " " + item.getDescription()+ " "+ item.getId()+" "+ item.getComment());
-
-        }
-
-        tracker.delByname("ThirdItem");
-        System.out.println("/////////////////////////23/");
-        for (Item item : tracker.getAll()){
-           tracker.addComment(item, "sdsd");
-            System.out.println(item.getName()+ " " + item.getDescription()+ " "+ item.getId()+" "+ item.getComment());
-
-        }
-
-
-
-
-
-
-}
     protected Item[] getAll(){
         Item[] result = new Item[this.position];
         for (int index =0; index!= this.position; index++){
