@@ -1,5 +1,5 @@
 package tracker.start;
-import tracker.models.Item;
+import tracker.models.*;
 
 import java.util.Random;
 
@@ -9,10 +9,13 @@ import java.util.Random;
  * @since 07.12.2016
  * @version 1
  */
+
+
 public class Tracker {
     private Item[] items = new Item[10];
     private int position = 0;
     private static final Random RN = new Random();
+
 
 
     protected Item[] getAll() {
@@ -58,9 +61,9 @@ public class Tracker {
         return result;
     }
     //записать null при удалении
-    protected void delByname(String name) {
+    protected void delByid(String id) {
        for (int i = 0; i < items.length; i++) {
-            if (items[i] != null && name.equals(items[i].getName())) {
+            if (items[i] != null && id.equals(items[i].getId())) {
                 items[i] = null;
                 break;
             }

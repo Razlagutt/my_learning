@@ -26,7 +26,7 @@ public class TrackerTest {
         newitem = tracker.filterByName("name");
         int i = 0;
         for (Item item: tracker.getAll()) {
-                   Assert.assertThat(newitem[i], equalTo(items[i]));
+            System.out.println(item.getName()+ " " + item.getDescription()+ " "+ item.getId()+" "+ item.getComment());
         }
     }
 
@@ -64,7 +64,7 @@ public class TrackerTest {
     }
 
     @Test
-    public void delByname() throws Exception {
+    public void delByid() throws Exception {
         Tracker tracker = new Tracker();
         Task task1 = new Task("1stname", "1stDescription", "1stcoment");
         Task task2 = new Task("2ndname", "2ndDescription", "2ndcomment");
@@ -72,7 +72,7 @@ public class TrackerTest {
         tracker.add(task1);
         tracker.add(task2);
         tracker.add(task3);
-        tracker.delByname("2ndname");
+        tracker.delByid("2ndname");
         if (task2 == null) {
             System.out.print("Item deleted");
         }
