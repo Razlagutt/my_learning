@@ -12,10 +12,16 @@ public class StartUI {
         this.input = input;
     }
     public void init() {
-       String name = input.ask("Please enter YourName");
-        Tracker tracker = new Tracker();
-
+       Tracker tracker = new Tracker();
+        MenuTracker menu = new MenuTracker(this.input, tracker);
+        menu.fillActions();
+        do {
+            menu.show();
+            int key = Integer.valueOf(input.ask("Select:"));
+            menu.select(key);
+        } while (!"y".equals(this.input.ask("Exit? Y")));
     }
+
     public void menu() {
         String user = input.ask("Please enter YourName");
         System.out.println("Hello "+ user);
@@ -94,6 +100,6 @@ public class StartUI {
     public static void main(String[] args) {
         //Input input =  new StubInput(new String[] {"create stub task"});
         ConsoleInput input = new ConsoleInput();
-        new StartUI(input).menu();
+        new StartUI(input).init();
     }
 }

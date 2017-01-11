@@ -67,6 +67,7 @@ public class Tracker {
                 items[i] = null;
                 break;
             }
+
         }
 
     }
@@ -77,6 +78,7 @@ public class Tracker {
                 items[i] = newitem;
                 break;
             }
+
         }
 
     }
