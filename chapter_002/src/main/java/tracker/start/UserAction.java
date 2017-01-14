@@ -1,7 +1,10 @@
 package tracker.start;
 
 /**
- * Created by Z.Turabayev on 10.01.2017.
+ * Interface UserAction определяет интерфейс внутренних классов MenuTracker.
+ * @author Zaur Turabayev
+ * @since 10.01.2017
+ * @version 1
  */
 public interface UserAction {
     int key();

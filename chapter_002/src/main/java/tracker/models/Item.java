@@ -34,7 +34,7 @@ public class Item {
     protected String comment;
     /**
      * Description.
-     * Конструктор Item Описание заявки.
+     * Конструктор Item пустой.
      */
     public Item() {
 
@@ -89,21 +89,21 @@ public class Item {
     /**
      * Description.
      * Метод Item Описание заявки.
-     * @param  id
+     * @param  id заявки
      */
     public void setId(String id) {
         this.id = id;
     }
     /**
      * Description.
-     * Метод Item Описание заявки.
+     * Метод setComment для назначения коментариев.
      */
     public void setComment(String comment) {
         this.comment = comment;
     }
     /**
      * Description.
-     * Метод Item Описание заявки.
+     * Метод getComment для получения коментариев.
      * @return comment
      */
     public String  getComment() {
@@ -111,4 +111,3 @@ public class Item {
     }
 
 }
-

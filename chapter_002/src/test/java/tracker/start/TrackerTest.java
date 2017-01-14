@@ -51,9 +51,9 @@ public class TrackerTest {
         tracker.updateItem(newItem);
         int i =0;
         for (Item item: tracker.getAll()) {
-          if (i == 1) {
-              Assert.assertThat(newItem, equalTo(task2));
-          }
+            if (i == 1) {
+                Assert.assertThat(newItem, equalTo(task2));
+            }
         }
 
     }
@@ -87,7 +87,7 @@ public class TrackerTest {
         tracker.add(task1);
         tracker.add(task2);
         tracker.add(task3);
-       Item geted = tracker.findByname("3rdname");
+        Item geted = tracker.findByname("3rdname");
         Assert.assertThat(geted, equalTo(task3));
 
     }

@@ -4,7 +4,7 @@ import tracker.models.*;
 import java.util.Random;
 
 /**
- * Class Task Описание заявки.
+ * Class Tracker для работы с заявками
  * @author Zaur Turabayev
  * @since 07.12.2016
  * @version 1
@@ -18,6 +18,7 @@ public class Tracker {
 
 
 
+
     protected Item[] getAll() {
         Item[] result = new Item[this.position];
         for (int index = 0; index != this.position; index++) {
@@ -28,7 +29,8 @@ public class Tracker {
 
 
     protected Item add(Item item) {
-        item.setId(String.valueOf(RN.nextInt()));
+        Tracker tracker = new Tracker();
+        item.setId(String.valueOf(tracker.RN.nextInt()));
         this.items[position++] = item;
         return item;
     }
@@ -62,7 +64,7 @@ public class Tracker {
     }
     //записать null при удалении
     protected void delByid(String id) {
-       for (int i = 0; i < items.length; i++) {
+        for (int i = 0; i < items.length; i++) {
             if (items[i] != null && id.equals(items[i].getId())) {
                 items[i] = null;
                 break;
