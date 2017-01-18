@@ -1,5 +1,8 @@
 package tracker.start;
 import tracker.models.*;
+
+import java.util.Arrays;
+
 /**
  * Class StartUI класс реализующий запуск  меню пользователя.
  * @author Zaur Turabayev
@@ -7,6 +10,7 @@ import tracker.models.*;
  * @version 1
  */
 public class StartUI {
+    private int[] range;
     private Input input;
     private Tracker tracker;
     /**
@@ -26,10 +30,11 @@ public class StartUI {
 
         MenuTracker menu = new MenuTracker(this.input, tracker);
         menu.fillActions();
+        range = menu.getRange();
         do {
             menu.show();
-            int key = Integer.valueOf(input.ask("Select:"));
-            menu.select(key);
+          //  int key = Integer.valueOf(input.ask("Select:"));
+            menu.select(input.ask("Select:", range));
         } while (!"y".equals(this.input.ask("Exit? Y")));
     }
     /**
@@ -105,7 +110,7 @@ public class StartUI {
 
     public static void main(String[] args) {
         //Input input =  new StubInput(new String[] {"create stub task"});
-        ConsoleInput input = new ConsoleInput();
+        Input input = new ValidateInput();
         Tracker tracker = new Tracker();
         //new StartUI(input, tracker).menu();
         new StartUI(input, tracker).init();

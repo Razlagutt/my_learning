@@ -1,6 +1,9 @@
 package tracker.start;
 
 import org.junit.Test;
+
+import java.util.Arrays;
+
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertNull;
@@ -14,12 +17,14 @@ import static org.junit.Assert.assertNull;
 public class StartUITest {
     private StartUI Select;
     private Tracker tracker = new Tracker();
+    private Input input;
+    private  MenuTracker menuTracker = new MenuTracker(this.input, tracker);
     /**
      * Метод menuTest   реализован запуск тестирования метода menu.
      * @param enters данные автоввода
      */
     private void menuTest(String[] enters) {
-        Input input = new StubInput(enters);
+        StubInput input = new StubInput(enters);
         this.Select = new StartUI(input,this.tracker);
         Select.menu();
     }
@@ -28,8 +33,8 @@ public class StartUITest {
      *  @param enters данные автоввода
      */
     private void initTest(String[] enters) {
-        Input input = new StubInput(enters);
-        this.Select = new StartUI(input,this.tracker);
+        StubInput stubInput = new StubInput(enters);
+        this.Select = new StartUI(stubInput,this.tracker);
         Select.init();
     }
 
@@ -178,4 +183,8 @@ public class StartUITest {
         this.initTest(secondAnswers);
         assertThat(tracker.findByname("secondTask").getComment(), is ("solve ASAP"));
     }
+    /**
+     * Метод TestInitValidateInput тестирует метод init на неправильный ввод.
+     */
+
 }

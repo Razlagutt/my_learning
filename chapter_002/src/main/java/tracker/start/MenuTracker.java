@@ -2,6 +2,9 @@ package tracker.start;
 
 import tracker.models.Task;
 import tracker.models.Item;
+
+
+
 /**
  * Class StartUI класс реализующий меню пользователя.
  * @author Zaur Turabayev
@@ -63,6 +66,30 @@ public class MenuTracker {
             }
         }
 
+    }
+    /**
+     * Метод  getRange получает в массиве значения которые может выбрать пользователь для
+     * дальнейщей валидации
+     */
+    public int[] getRange() {
+        int i = 0;
+        int [] temp = new int[20];
+        for (UserAction action: this.action) {
+            if (action != null) {
+              temp[i] = Integer.valueOf(action.key());
+              i++;
+            }
+        }
+        int [] range = new int[i++];
+        int j = 0;
+        int k;
+        for (k = 0; k < temp.length; k++) {
+            if (temp[k] != 0) {
+                range[j] = temp[k];
+                j++;
+            }
+        }
+        return range;
     }
     /**
      * Class AddItem внутренний класс реализующий добавление заявки.

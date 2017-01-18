@@ -20,5 +20,24 @@ public class StubInput implements Input {
     public String ask(String question) {
         return answers[positions++];
     }
+
+    @Override
+    public int ask(String question, int[] range) throws MenuOutException  {
+       return Integer.valueOf(this.answers[positions++]);
+     /*   int key = Integer.valueOf(this.ask(question));
+        boolean exist = false;
+        for (int value : range) {
+            if (value == key) {
+                exist = true;
+                break;
+            }
+        }
+        if (exist) {
+            return key;
+        } else {
+            throw new MenuOutException("out of range");
+        }
+        */
+    }
 }
 
