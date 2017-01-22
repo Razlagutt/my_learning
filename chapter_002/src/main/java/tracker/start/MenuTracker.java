@@ -3,6 +3,7 @@ package tracker.start;
 import tracker.models.Task;
 import tracker.models.Item;
 
+import javax.jws.soap.SOAPBinding;
 
 
 /**
@@ -24,6 +25,7 @@ public class MenuTracker {
      *  action объект для выбора  действия.
      */
     private UserAction[] action =  new UserAction[7];
+    private int position = 0;
     /**
      * Description.
      * Конструктор  меню.
@@ -39,12 +41,16 @@ public class MenuTracker {
      * Метод fillActions  расперделяет внутрение классы по ячейкам массива action.
      */
     public void fillActions() {
-        this.action[1] = this.new AddItem();
-        this.action[2] = new MenuTracker.UpdateItem();
-        this.action[3] = new MenuTracker.DeleteItem();
-        this.action[4] = new MenuTracker.ShowAll();
-        this.action[5] = new MenuTracker.FilterItem();
-        this.action[6] = new MenuTracker.AddComment();
+        this.action[1] = this.new AddItem("add item");
+        this.action[2] = new MenuTracker.UpdateItem("update item");
+        this.action[3] = new MenuTracker.DeleteItem("delete item");
+        this.action[4] = new MenuTracker.ShowAll("show all");
+        this.action[5] = new MenuTracker.FilterItem("find item");
+        this.action[6] = new MenuTracker.AddComment("add comment");
+    }
+    public void addAction(UserAction action) {
+        this.action[position++] = action;
+
     }
     /**
      * Метод  select при выборе ключа в меню запускает на выполнение выбранной задачи.
@@ -98,8 +104,12 @@ public class MenuTracker {
      * @since 10.01.2017
      * @version 1
      */
-    private class AddItem implements UserAction {
-       public  int key() {
+    private class AddItem extends BaseAction {
+        public AddItem(String name) {
+            super(name);
+        }
+
+        public  int key() {
            return 1;
        }
        public void execute(Input input, Tracker tracker) {
@@ -107,9 +117,7 @@ public class MenuTracker {
            String description = input.ask("Please enter TaksDescription");
            tracker.add(new Task(name, description, ""));
        }
-       public String info() {
-          return String.format("%s. %s", this.key(), "add new item");
-       }
+
     }
     /**
      * Class ShowAll внутренний класс реализующий вывод всех заявок.
@@ -118,7 +126,11 @@ public class MenuTracker {
      * @since 10.01.2017
      * @version 1
      */
-    private class ShowAll implements UserAction {
+    private class ShowAll extends BaseAction {
+        public ShowAll(String name) {
+            super(name);
+        }
+
         public  int key() {
             return 4;
         }
@@ -129,9 +141,7 @@ public class MenuTracker {
                 }
             }
         }
-        public String info() {
-            return String.format("%s. %s", this.key(), "show all items");
-        }
+
     }
     /**
      * Class DeleteItem внутренний класс реализующий удаление заявки.
@@ -140,7 +150,11 @@ public class MenuTracker {
      * @since 10.01.2017
      * @version 1
      */
-    private class DeleteItem implements UserAction {
+    private class DeleteItem extends BaseAction {
+        public DeleteItem(String name) {
+            super(name);
+        }
+
         public  int key() {
             return 3;
         }
@@ -148,9 +162,7 @@ public class MenuTracker {
           tracker.delByid(input.ask("Please enter TaksIDtoDelete"));
           System.out.println("Item deleted");
         }
-        public String info() {
-            return String.format("%s. %s", this.key(), "delete item");
-        }
+
     }
     /**
      * Class UpdateItem внутренний класс реализующий корректировку заявки.
@@ -159,7 +171,11 @@ public class MenuTracker {
      * @since 10.01.2017
      * @version 1
      */
-    private class UpdateItem implements UserAction {
+    private class UpdateItem extends BaseAction {
+        public UpdateItem(String name) {
+            super(name);
+        }
+
         public  int key() {
             return 2;
         }
@@ -172,9 +188,7 @@ public class MenuTracker {
             newItem.setId(id);
             tracker.updateItem(newItem);
         }
-        public String info() {
-            return String.format("%s. %s", this.key(), "update item");
-        }
+
     }
     /**
      * Class FilerItem внутренний класс реализующий поиск заявки.
@@ -183,7 +197,11 @@ public class MenuTracker {
      * @since 10.01.2017
      * @version 1
      */
-    private class FilterItem implements UserAction {
+    private class FilterItem extends BaseAction {
+        public FilterItem(String name) {
+            super(name);
+        }
+
         public  int key() {
             return 5;
         }
@@ -193,9 +211,7 @@ public class MenuTracker {
                 System.out.println(String.format("%s. %s. %s. %s", item.getId(), item.getName(), item.getDescription(), item.getComment()));
             }
         }
-        public String info() {
-            return String.format("%s. %s", this.key(), "find item");
-        }
+
     }
     /**
      * Class AddComment внутренний класс реализующий добавление коментария к заявке.
@@ -204,7 +220,11 @@ public class MenuTracker {
      * @since 10.01.2017
      * @version 1
      */
-    private class AddComment implements UserAction {
+    private class AddComment extends BaseAction {
+        public AddComment(String name) {
+            super(name);
+        }
+
         public  int key() {
             return 6;
         }
@@ -214,8 +234,6 @@ public class MenuTracker {
             Item geted = tracker.findByname(name);
             tracker.addComment(geted,commnet);
         }
-        public String info() {
-            return String.format("%s. %s", this.key(), "add comment");
-        }
+
     }
 }

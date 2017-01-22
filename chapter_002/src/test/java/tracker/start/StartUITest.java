@@ -19,15 +19,7 @@ public class StartUITest {
     private Tracker tracker = new Tracker();
     private Input input;
     private  MenuTracker menuTracker = new MenuTracker(this.input, tracker);
-    /**
-     * Метод menuTest   реализован запуск тестирования метода menu.
-     * @param enters данные автоввода
-     */
-    private void menuTest(String[] enters) {
-        StubInput input = new StubInput(enters);
-        this.Select = new StartUI(input,this.tracker);
-        Select.menu();
-    }
+
     /**
      * Метод initTest  реализован запуск тестирования метода init.
      *  @param enters данные автоввода
@@ -38,85 +30,7 @@ public class StartUITest {
         Select.init();
     }
 
-    /**
-     * Метод menu воодит данные не тестирует состояние.
-     */
-   @Test
-    public void menu() throws Exception {
-        String[] answers = { "1", "problem with PC", "cant open programm", "4", "6", "problem with PC",  "PC name ALPC0012", "7"};
-        StubInput stubInput = new StubInput(answers);
-        Tracker tracker = new Tracker();
-        new StartUI(stubInput, tracker).menu();
-    }
-    /**
-     * Метод TestAddItem тестирует метод menu  на добавление заявки с проверкой состояния.
-     */
-    @Test
-    public void TestAddItem() throws Exception {
-        Tracker tracker = new Tracker();
-        String[] answers = {"1", "firstTask","descTask1","7"};
-        StubInput stubInput = new StubInput(answers);
-        new StartUI(stubInput, tracker).menu();
-        assertThat(tracker.getAll()[0].getName(), is ("firstTask"));
-        assertThat(tracker.getAll()[0].getDescription(), is ("descTask1"));
-    }
-    /**
-     * Метод TestUpdateItem тестирует метод menu  на обновление заявки с проверкой состояния.
-     */
-    @Test
-    public void TestUpdateItem() throws Exception {
-        String[] firstAnswers = new String[] {"1", "firstTask", "descTask1", "7"};
-        this.menuTest(firstAnswers);
-        String[] secondAnswers = new String[] {"2",this.tracker.findByname("firstTask").getId(), "UpdatedTask",
-                "descTask1", "ASAP", "7"};
-        this.menuTest(secondAnswers);
-        assertThat(tracker.getAll()[0].getName(), is ("UpdatedTask"));
 
-    }
-    /**
-     * Метод TestDeleteItem тестирует метод menu  на удаление заявки с проверкой состояния.
-     */
-     @Test
-     public void TestDeleteItem() throws Exception {
-        String[] firstAnswers = new String[] {"1", "firstTask", "descTask1", "7"};
-        this.menuTest(firstAnswers);
-        String[] secondAnswers = new String[] {"3",this.tracker.findByname("firstTask").getId(),"7"};
-        this.menuTest(secondAnswers);
-
-        assertNull(this.tracker.getAll()[0]);
-    }
-    /**
-     * Метод TestShowAllItem тестирует метод menu  на вывод заявок с проверкой состояния.
-     */
-    @Test
-    public void TestShowAllItem() throws Exception {
-        String[] firstAnswers = new String[] {"1", "firstTask", "descTask1", "1", "secondTask", "descTask2", "7"};
-        this.menuTest(firstAnswers);
-        assertThat(tracker.getAll()[0].getName(), is ("firstTask"));
-        assertThat(tracker.getAll()[1].getName(), is ("secondTask"));
-    }
-    /**
-     * Метод TestShowAllItem тестирует метод menu  на вывод заявок с проверкой состояния
-     */
-    @Test
-    public void TestShowWithFilter() throws Exception {
-        String[] firstAnswers = new String[] {"1", "firstTask", "descTask1", "1", "secondTask", "descTask2", "7"};
-        this.menuTest(firstAnswers);
-        String[] secondAnswers = new String[] {"5","second","7"};
-        this.menuTest(secondAnswers);
-        assertThat(tracker.getAll()[1].getName(), is ("secondTask"));
-    }
-    /**
-     * Метод TestAddCommen тестирует метод menu  на добавление коментария с проверкой состояния.
-     */
-    @Test
-    public void TestAddComment() throws Exception {
-        String[] firstAnswers = new String[] {"1", "firstTask", "descTask1", "1", "secondTask", "descTask2", "7"};
-        this.menuTest(firstAnswers);
-        String[] secondAnswers = new String[] {"6","secondTask", "solve ASAP", "7"};
-        this.menuTest(secondAnswers);
-        assertThat(tracker.findByname("secondTask").getComment(), is ("solve ASAP"));
-    }
     /**
      * Метод TestInitAddItem тестирует метод init  на добавление заявок с проверкой состояния.
      */
